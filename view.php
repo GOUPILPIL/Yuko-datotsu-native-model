@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>TO DO LIST</title>
 </head>
 <nav class="navbar navbar-dark bg-primary">
