@@ -1,10 +1,17 @@
 <?php 
-function    statemod(){
-    global $bdd;
+    function initbdd(){
+        
+     try{
+            $bdd = new PDO('mysql:host=localhost;dbname=todo_project;charset=utf8', 'root', 'root');
+        }
+        catch(Exception $e){
+            die('Erreur : '.$e->getMessage());
+        } 
+    return($bdd);
+    }
+function    statemod($bdd){
     if (isset($_POST["submit"])) {
-
         try {
-            
             $lbl = htmlspecialchars($_POST['lbl']);
             $descr = htmlspecialchars($_POST['descr']);
             
@@ -16,7 +23,8 @@ function    statemod(){
         } catch (PDOException $e) {
                 echo 'Connexion échouée : ' . $e->getMessage();
         }
-       echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+        header('Location:index.php');
+      // echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
     }
 
     if (isset($_POST["delete"])) {
@@ -29,6 +37,7 @@ function    statemod(){
         } catch (PDOException $e) {
                 echo 'Connexion échouée : ' . $e->getMessage();
         }
-        echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+        header('Location:index.php');
+       // echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+    }
     }    
-}
