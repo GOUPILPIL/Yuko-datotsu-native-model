@@ -11,6 +11,16 @@
             return (2);
         return(0);
     }
+    function numbertopriority($str)
+    {
+        if($str == 0)
+            return("Low");
+        if($str == 1)
+            return("Medium");
+        if($str == 2)
+            return ("High");
+        return("Low");
+    }
 
             // BDD INIT AND STATE MODIFICATION
     function initbdd($bddname){
@@ -42,6 +52,7 @@
                         echo 'Connexion échouée : ' . $e->getMessage();
                 }
                 header('Location:index.php');
+                exit;
             }
 
             if (isset($_POST["delete"])) {
@@ -55,6 +66,7 @@
                         echo 'Connexion échouée : ' . $e->getMessage();
                 }
                 header('Location:index.php');
+                exit;
             }
             if (isset($_POST["edit"])){
                 try {
@@ -72,7 +84,8 @@
                 } catch (PDOException $e) {
                         echo 'Connexion échouée : ' . $e->getMessage();
                 }
-                header('Location:index.php');   
+                header('Location:index.php');
+                exit;
             }
         }
         // END OF BDD MODIFICATION PART

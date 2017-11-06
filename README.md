@@ -2,9 +2,10 @@
  -> Passage en soft MVC. (model <-> view)
  -> Ajout de la fontionalite supression OK
  -> Ajout d'element TDL ok
-# Pour la V0.3 -> Modification d'element, ajout de JQUERRY, ajout de priorite sur les taches.
- -> Modification Ok
- 
+# V0.3
+ -> Modification d'element
+ -> ajout de JQUERRY
+ -> ajout de priorite sur les taches.
  
  ---
  Low = 0
