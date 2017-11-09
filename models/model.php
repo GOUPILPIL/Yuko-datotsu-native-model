@@ -23,10 +23,10 @@
     }
 
             // BDD INIT AND STATE MODIFICATION
-    function initbdd($bddname){
-        
+    function initbdd(){
+     require __DIR__.'/config.php';
      try{
-            $bdd = new PDO('mysql:host=localhost;dbname='. $bddname .';charset=utf8', 'root', 'root');
+            $bdd = new PDO( "mysql:dbname=$dbname;host=$host;charset=utf8", $user, $password);
         }
         catch(Exception $e){
             die('Erreur : '.$e->getMessage());
@@ -41,12 +41,15 @@
                     $priority = prioritytonumber($_POST['priority']);
                     $lbl = htmlspecialchars($_POST['lbl']);
                     $descr = htmlspecialchars($_POST['descr']);
+                    $useridlink = $_SESSION['id'];
 
-                    $sql = 'INSERT INTO tache (labeltache, description, priority) VALUES (:labeltache, :description, :priority)';
+                    $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)'; //Ajouter useridlink
                     $statement = $bdd->prepare($sql);
+                    $statement->bindParam(':useridlink', $useridlink);
                     $statement->bindParam(':labeltache', $lbl);
                     $statement->bindParam(':description', $descr);
                     $statement->bindParam(':priority', $priority);
+                    //Ajouter usridlink
                     $statement->execute();       
                 } catch (PDOException $e) {
                         echo 'Connexion échouée : ' . $e->getMessage();

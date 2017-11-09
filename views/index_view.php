@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 
@@ -10,8 +11,10 @@
     <script src="js/scripts.js"></script>
 </head>
 <body>
-    <script type="text/javascript">
-    </script>
+    <form action="./delete.php">
+    <input type="submit" value="This is a button link">
+    </form> 
+    
     <div id="msgid">
 <nav class="navbar navbar-dark bg-primary">
     TO-DO-LIST
