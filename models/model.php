@@ -43,13 +43,12 @@
                     $descr = htmlspecialchars($_POST['descr']);
                     $useridlink = $_SESSION['id'];
 
-                    $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)'; //Ajouter useridlink
+                    $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)';
                     $statement = $bdd->prepare($sql);
                     $statement->bindParam(':useridlink', $useridlink);
                     $statement->bindParam(':labeltache', $lbl);
                     $statement->bindParam(':description', $descr);
                     $statement->bindParam(':priority', $priority);
-                    //Ajouter usridlink
                     $statement->execute();       
                 } catch (PDOException $e) {
                         echo 'Connexion échouée : ' . $e->getMessage();

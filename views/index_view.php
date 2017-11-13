@@ -7,17 +7,16 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>TO DO LIST</title>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
 </head>
 <body>
-    <form action="./delete.php">
-    <input type="submit" value="This is a button link">
-    </form> 
-    
     <div id="msgid">
 <nav class="navbar navbar-dark bg-primary">
-    TO-DO-LIST
+    TO-DO-LIST - Welcome <?php echo $_SESSION['user']; ?> :)
+    
+    <form action="./delete.php"> <button class="btn btn-warning" type="submit">disconnect :) </button> </form>
     <button id="boutton-display" class="btn btn-success my-2 my-sm-0" type="submit">Add a new Element</button>
 </nav>
 <div id="dmenu" class="jumbotron" style="display: none;">

@@ -8,6 +8,7 @@
     <title>TO DO LIST</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -46,7 +47,12 @@
                 <label for="exampleInputPassword1">Password :</label>
                 <input type="password" class="form-control" name="registerPwd" placeholder="Password">
             </div>
+            <div class="form-group row">
+            <div class="g-recaptcha" data-sitekey="6LdPATgUAAAAAHfstvviunA3WrSMVVNTHaAsHX85"></div>
+            </div>
+             <div class="form-group row">
             <button type="submit" value="OK" name="submitRegister" class="btn btn-primary">Go !</button>
+            </div>
         </form>
     </div>
 </body>

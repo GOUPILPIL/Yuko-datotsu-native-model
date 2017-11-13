@@ -11,6 +11,8 @@
 -> Ajout page de connection
 -> Ajout de session
 -> Obligation d'etre log pour avoir acces au site
+-> Deconnection
+-> Tache lie a l'utilisateur
 
  ---
  Low = 0
@@ -19,7 +21,7 @@
  ---
  
  Recuperer l'id dans connect et l'envoyer dans $_SESSION; - DONE !
- Modifier l'ajout par ID d'utilisateur dans la variable;
+ Modifier l'ajout par ID d'utilisateur dans la variable; - DONE !
  Faire un peu de HTML pour mettre un bouton deconnexion en place;
  Revoir un peu les header pour que ca soit plus coherent;
  inverser le contenu de register avec index;
