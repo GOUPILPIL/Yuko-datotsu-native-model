@@ -60,9 +60,10 @@
             if (isset($_POST["delete"])) {
 
                 try {
-                $sql = 'DELETE FROM tache WHERE tacheid = :id';
+                $sql = 'DELETE FROM tache WHERE tacheid = :id AND  useridlink = :uid';
                 $statement = $bdd->prepare($sql);
                 $statement->bindParam(':id', $_POST['delete']);
+                $statement->bindParam(':uid', $_SESSION['id']);
                 $statement->execute();
                 } catch (PDOException $e) {
                         echo 'Connexion échouée : ' . $e->getMessage();
@@ -76,12 +77,13 @@
                 $lbl = htmlspecialchars($_POST['lbl']);
                 $descr = htmlspecialchars($_POST['descr']);
 
-                $sql = 'UPDATE tache SET labeltache = :labeltache, description = :description, priority = :priority  WHERE tacheid = :id';
+                $sql = 'UPDATE tache SET labeltache = :labeltache, description = :description, priority = :priority  WHERE tacheid = :id AND useridlink = :uid';
                 $statement = $bdd->prepare($sql);
                 $statement->bindParam(':id', $_POST['edit']);
                 $statement->bindParam(':labeltache', $lbl);
                 $statement->bindParam(':description', $descr);
                 $statement->bindParam(':priority', $priority);
+                $statement->bindParam(':uid', $_SESSION['id']);
                 $statement->execute();
                 } catch (PDOException $e) {
                         echo 'Connexion échouée : ' . $e->getMessage();
