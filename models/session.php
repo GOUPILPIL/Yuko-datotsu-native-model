@@ -3,7 +3,7 @@
     {
         if(!isset($_SESSION['user']))
         {
-            echo"CONNECTER VOUS";
+            echo"CONNECTEZ-VOUS";
             exit();
         }
         echo $_SESSION['user'];

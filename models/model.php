@@ -1,6 +1,7 @@
 <?php 
 
-    // TOOLS
+        // TOOLS
+
     function prioritytonumber($str)
     {
         if($str == "Low")
@@ -23,7 +24,8 @@
     }
 
             // BDD INIT AND STATE MODIFICATION
-    function initbdd()
+
+function initbdd()
     {
         require __DIR__.'/config.php';
         try{
@@ -35,22 +37,22 @@
         return($bdd);
     }
 
-    function    AddElement($bdd , $submit, $priority, $lbl, $descr, $useridlink)
-        {
-            try{
-                    $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)';
-                    $statement = $bdd->prepare($sql);
-                    $statement->bindParam(':useridlink', $useridlink);
-                    $statement->bindParam(':labeltache', $lbl);
-                    $statement->bindParam(':description', $descr);
-                    $statement->bindParam(':priority', $priority);
-                    $statement->execute();       
-            } catch (PDOException $e) {
-                    echo 'Connexion échouée : ' . $e->getMessage();
-            }
-                header('Location:index.php');
-                exit;
+function    AddElement($bdd , $submit, $priority, $lbl, $descr, $useridlink)
+    {
+        try{
+                $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)';
+                $statement = $bdd->prepare($sql);
+                $statement->bindParam(':useridlink', $useridlink);
+                $statement->bindParam(':labeltache', $lbl);
+                $statement->bindParam(':description', $descr);
+                $statement->bindParam(':priority', $priority);
+                $statement->execute();       
+        } catch (PDOException $e) {
+                echo 'Connexion échouée : ' . $e->getMessage();
         }
+            header('Location:index.php');
+            exit;
+    }
 
 function DeleteElement($bdd, $delete, $id)
     {
@@ -67,21 +69,21 @@ function DeleteElement($bdd, $delete, $id)
         exit;
     }
 
-    function    EditElement($bdd, $edit, $priority, $lbl, $descr, $id)
-        {
-            try {
-                $sql = 'UPDATE tache SET labeltache = :labeltache, description = :description, priority = :priority  WHERE tacheid = :id AND useridlink = :uid';
-                $statement = $bdd->prepare($sql);
-                $statement->bindParam(':id', $edit);
-                $statement->bindParam(':labeltache', $lbl);
-                $statement->bindParam(':description', $descr);
-                $statement->bindParam(':priority', $priority);
-                $statement->bindParam(':uid', $id);
-                $statement->execute();
-            } catch (PDOException $e) {
-                echo 'Connexion échouée : ' . $e->getMessage();
-            }
-            header('Location:index.php');
-            exit;
+function    EditElement($bdd, $edit, $priority, $lbl, $descr, $id)
+    {
+        try {
+            $sql = 'UPDATE tache SET labeltache = :labeltache, description = :description, priority = :priority  WHERE tacheid = :id AND useridlink = :uid';
+            $statement = $bdd->prepare($sql);
+            $statement->bindParam(':id', $edit);
+            $statement->bindParam(':labeltache', $lbl);
+            $statement->bindParam(':description', $descr);
+            $statement->bindParam(':priority', $priority);
+            $statement->bindParam(':uid', $id);
+            $statement->execute();
+        } catch (PDOException $e) {
+            echo 'Connexion échouée : ' . $e->getMessage();
         }
+        header('Location:index.php');
+        exit;
+    }
         // END OF BDD MODIFICATION PART
