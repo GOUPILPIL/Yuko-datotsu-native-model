@@ -23,26 +23,21 @@
     }
 
             // BDD INIT AND STATE MODIFICATION
-    function initbdd(){
-     require __DIR__.'/config.php';
-     try{
-            $bdd = new PDO( "mysql:dbname=$dbname;host=$host;charset=utf8", $user, $password);
+    function initbdd()
+    {
+        require __DIR__.'/config.php';
+        try{
+                $bdd = new PDO( "mysql:dbname=$dbname;host=$host;charset=utf8", $user, $password);
         }
-        catch(Exception $e){
+            catch(Exception $e){
             die('Erreur : '.$e->getMessage());
         } 
-    return($bdd);
+        return($bdd);
     }
 
-    function    statemod($bdd){
-            if (isset($_POST["submit"])) {
-                try {
-
-                    $priority = prioritytonumber($_POST['priority']);
-                    $lbl = htmlspecialchars($_POST['lbl']);
-                    $descr = htmlspecialchars($_POST['descr']);
-                    $useridlink = $_SESSION['id'];
-
+    function    AddElement($bdd , $submit, $priority, $lbl, $descr, $useridlink)
+        {
+            try{
                     $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)';
                     $statement = $bdd->prepare($sql);
                     $statement->bindParam(':useridlink', $useridlink);
@@ -50,46 +45,43 @@
                     $statement->bindParam(':description', $descr);
                     $statement->bindParam(':priority', $priority);
                     $statement->execute();       
-                } catch (PDOException $e) {
-                        echo 'Connexion échouée : ' . $e->getMessage();
-                }
+            } catch (PDOException $e) {
+                    echo 'Connexion échouée : ' . $e->getMessage();
+            }
                 header('Location:index.php');
                 exit;
-            }
+        }
 
-            if (isset($_POST["delete"])) {
-
-                try {
+function DeleteElement($bdd, $delete, $id)
+    {
+        try {
                 $sql = 'DELETE FROM tache WHERE tacheid = :id AND  useridlink = :uid';
                 $statement = $bdd->prepare($sql);
-                $statement->bindParam(':id', $_POST['delete']);
-                $statement->bindParam(':uid', $_SESSION['id']);
+                $statement->bindParam(':id', $delete);
+                $statement->bindParam(':uid', $id);
                 $statement->execute();
-                } catch (PDOException $e) {
-                        echo 'Connexion échouée : ' . $e->getMessage();
-                }
-                header('Location:index.php');
-                exit;
-            }
-            if (isset($_POST["edit"])){
-                try {
-                $priority = prioritytonumber($_POST['priority']);
-                $lbl = htmlspecialchars($_POST['lbl']);
-                $descr = htmlspecialchars($_POST['descr']);
+        } catch (PDOException $e) {
+                echo 'Connexion échouée : ' . $e->getMessage();
+        }
+        header('Location:index.php');
+        exit;
+    }
 
+    function    EditElement($bdd, $edit, $priority, $lbl, $descr, $id)
+        {
+            try {
                 $sql = 'UPDATE tache SET labeltache = :labeltache, description = :description, priority = :priority  WHERE tacheid = :id AND useridlink = :uid';
                 $statement = $bdd->prepare($sql);
-                $statement->bindParam(':id', $_POST['edit']);
+                $statement->bindParam(':id', $edit);
                 $statement->bindParam(':labeltache', $lbl);
                 $statement->bindParam(':description', $descr);
                 $statement->bindParam(':priority', $priority);
-                $statement->bindParam(':uid', $_SESSION['id']);
+                $statement->bindParam(':uid', $id);
                 $statement->execute();
-                } catch (PDOException $e) {
-                        echo 'Connexion échouée : ' . $e->getMessage();
-                }
-                header('Location:index.php');
-                exit;
+            } catch (PDOException $e) {
+                echo 'Connexion échouée : ' . $e->getMessage();
             }
+            header('Location:index.php');
+            exit;
         }
         // END OF BDD MODIFICATION PART
