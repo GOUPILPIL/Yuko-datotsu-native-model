@@ -7,7 +7,7 @@ function connecttoaccount($bdd, $user, $pwd)
         $test->bindParam(':user', $user);
         $test->bindParam(':password', $pwd);
         $test->execute();
-        $inp = $test->fetch(PDO::FETCH_NUM);
+        $inp = $test->fetch(PDO::FETCH_NUM); // a modifier 
         if($inp)
         {
             $_SESSION['id'] = $inp[0]; // 0 is ID
@@ -19,7 +19,7 @@ function connecttoaccount($bdd, $user, $pwd)
         {
             session_unset ();
             session_destroy ();
-            echo "Something go wrong...";
+            echo "Something goes wrong...";
         }
     }
 ?>

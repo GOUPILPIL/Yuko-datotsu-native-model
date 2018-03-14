@@ -11,12 +11,12 @@
     $stmt = $bdd->query('SELECT * FROM tache WHERE useridlink =' . $_SESSION['id'] . ' order by priority desc');
 
    if (isset($_POST["submit"])) {
-        $submit = $_POST["submit"];
         $priority = prioritytonumber($_POST['priority']);
         $lbl = htmlspecialchars($_POST['lbl']);
         $descr = htmlspecialchars($_POST['descr']);
         $useridlink = $_SESSION['id'];
-        AddElement($bdd, $submit, $priority, $lbl, $descr, $useridlink);
+        AddElement($bdd, $priority, $lbl, $descr, $useridlink);
+        header('Location:index.php');
    }
     if (isset($_POST["delete"])) {
 

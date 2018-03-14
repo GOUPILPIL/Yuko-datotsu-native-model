@@ -37,7 +37,7 @@ function initbdd()
         return($bdd);
     }
 
-function    AddElement($bdd , $submit, $priority, $lbl, $descr, $useridlink)
+function    AddElement($bdd , $priority, $lbl, $descr, $useridlink)
     {
         try{
                 $sql = 'INSERT INTO tache (useridlink, labeltache, description, priority) VALUES (:useridlink, :labeltache, :description, :priority)';
