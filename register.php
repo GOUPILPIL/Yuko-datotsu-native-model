@@ -6,7 +6,7 @@
     $stmt = $bdd->query('SELECT * FROM user');
     if (isset($_POST['User'], $_POST['Pwd']))
     {
-        
+
         $user = htmlspecialchars($_POST['User']);
         $pwd = htmlspecialchars($_POST['Pwd']);
         connecttoaccount($bdd, $user, $pwd);
@@ -23,7 +23,7 @@
         registeraccount($bdd, $user, $mail, $pwd);
         }
     }
-    
-    require __DIR__.'/views/register_view.php';   
+
+    require __DIR__.'/views/register_view.php';
 ?> 
     

@@ -50,7 +50,7 @@ function    AddElement($bdd , $priority, $lbl, $descr, $useridlink)
         } catch (PDOException $e) {
                 echo 'Connexion échouée : ' . $e->getMessage();
         }
-            header('Location:index.php');
+            header('Location:list.php');
             exit;
     }
 
@@ -65,7 +65,7 @@ function DeleteElement($bdd, $delete, $id)
         } catch (PDOException $e) {
                 echo 'Connexion échouée : ' . $e->getMessage();
         }
-        header('Location:index.php');
+        header('Location:list.php');
         exit;
     }
 
@@ -83,7 +83,7 @@ function    EditElement($bdd, $edit, $priority, $lbl, $descr, $id)
         } catch (PDOException $e) {
             echo 'Connexion échouée : ' . $e->getMessage();
         }
-        header('Location:index.php');
+        header('Location:list.php');
         exit;
     }
         // END OF BDD MODIFICATION PART

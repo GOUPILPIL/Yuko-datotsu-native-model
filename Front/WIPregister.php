@@ -1,5 +1,4 @@
-<?php require_once 'Header.php' ?>
-
+<?php include('Header.php') ?>
     <div class="container col-md-6 offset-md-3" style="padding-top: 5%">
         <div class="card card-outline-secondary">
             <div class="card-header">
@@ -29,4 +28,4 @@
             </div>
         </div>
     </div>
-<?php require_once 'Endbody.php' ?>
+<?php include('Endbody.php') ?>

@@ -12,7 +12,7 @@ function connecttoaccount($bdd, $user, $pwd)
         {
             $_SESSION['id'] = $inp[0]; // 0 is ID
             $_SESSION['user'] = $user;
-            header('Location:index.php');
+            header('Location:list.php');
             exit;
         }
         else
