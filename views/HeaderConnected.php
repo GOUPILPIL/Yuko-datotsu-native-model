@@ -43,11 +43,13 @@
                 <a class="nav-link" href="#">Club</a>
             </li>
         </ul>
-        <a href="/jaroflife/connect.php">
-            <button class="btn btn-outline-success my-2 " style="margin-right: 10px;" type="submit">Connect</button>
+            <button class="btn btn-outline-success my-2 " style="margin-right: 10px;">Welcome <?php echo $_SESSION['user']; ?></button>
+        <a href="./add.php">
+            <button class="btn btn-outline-primary my-2 " style="margin-right: 10px;" type="submit">Add a new event</button>
         </a>
-        <a href="/jaroflife/register.php">
-            <button class="btn btn-outline-dark  " type="Register">Register</button>
+
+        <a href="./delete.php">
+            <button class="btn btn-outline-danger my-2 " type="submit">Disconnect</button>
         </a>
     </div>
 </nav>

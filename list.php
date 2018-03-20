@@ -2,6 +2,7 @@
     session_start ();
     require __DIR__.'/models/model.php';
     require __DIR__.'/models/session.php';
+
     if(!isset($_SESSION['id']))
     {
         header('Location:register.php');
@@ -28,11 +29,12 @@
     if (isset($_POST["edit"]))
     {
         $edit = $_POST["edit"];
-        $priority = prioritytonumber($_POST['priority']);
-        $lbl = htmlspecialchars($_POST['lbl']);
-        $descr = htmlspecialchars($_POST['descr']); 
-        $id = $_SESSION['id'];
-        EditElement($bdd, $edit, $priority, $lbl, $descr, $id);
+        header('Location:edit.php?id=' . $edit);
+        //$priority = prioritytonumber($_POST['priority']);
+        //$lbl = htmlspecialchars($_POST['lbl']);
+        //$descr = htmlspecialchars($_POST['descr']);
+        //$id = $_SESSION['id'];
+        //EditElement($bdd, $edit, $priority, $lbl, $descr, $id);
     }
     require __DIR__.'/views/displaytache.php';
     require __DIR__ . '/views/list_view.php';
