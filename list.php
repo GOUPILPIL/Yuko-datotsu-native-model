@@ -33,11 +33,12 @@
     {
         $edit = $_POST["edit"];
         header('Location:edit.php?id=' . $edit);
-        //$priority = prioritytonumber($_POST['priority']);
-        //$lbl = htmlspecialchars($_POST['lbl']);
-        //$descr = htmlspecialchars($_POST['descr']);
-        //$id = $_SESSION['id'];
-        //EditElement($bdd, $edit, $priority, $lbl, $descr, $id);
+    }
+
+    if (isset($_POST["detail"]))
+    {
+        $detail = $_POST["detail"];
+        header('Location:detail.php?id=' . $detail);
     }
     require __DIR__.'/views/displaytache.php';
     require __DIR__ . '/views/list_view.php';

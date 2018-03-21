@@ -12,6 +12,9 @@
             </div>
             <div class="card-footer bg-transparent border-success">
                 <form action="" style="display: inline-block;" method="post">
+                    <button name="detail" class="btn btn-outline-primary my-2 " value="<?php echo $row['tacheid']?>" style="margin-right: 10px;" type="submit">Details</button>
+                </form>
+                <form action="" style="display: inline-block;" method="post">
                     <button name="edit" class="btn btn-outline-dark my-2 " value="<?php echo $row['tacheid']?>" style="margin-right: 10px;" type="submit">Edit</button>
                 </form>
                 <form action="" style="display: inline-block;" method="post">
