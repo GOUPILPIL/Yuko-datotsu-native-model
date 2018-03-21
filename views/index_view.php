@@ -7,7 +7,16 @@
  */
 ?>
 
-<?php require_once 'Header.php' ?>
+<?php
+if(isset($_SESSION['user']))
+{
+    require_once 'HeaderConnected.php';
+}
+else
+{
+    require_once 'Header.php';
+}
+?>
 
     <div class="container col-md-6 offset-md-3" style="padding-top: 5%">
        <h1>Welcome on Yuko-Datotsu  ! :)</h1>

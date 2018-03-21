@@ -24,7 +24,6 @@
        $descr = htmlspecialchars($_POST['descr']);
        $useridlink = $_SESSION['id'];
        AddElement($bdd, $priority, $lbl, $descr, $useridlink);
-       var_dump($bdd);
        header('Location:list.php');
    }
     require __DIR__.'/views/add_view.php';

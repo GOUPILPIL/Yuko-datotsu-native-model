@@ -3,13 +3,16 @@
     require __DIR__.'/models/model.php';
     require __DIR__.'/models/session.php';
 
+    $bdd = initbdd();
     if(!isset($_SESSION['id']))
     {
-        header('Location:register.php');
-        exit();
+        $stmt = $bdd->query('SELECT * FROM tache order by priority desc');
+        //header('Location:register.php');
+        //exit();
     }
-    $bdd = initbdd();
-    $stmt = $bdd->query('SELECT * FROM tache WHERE useridlink =' . $_SESSION['id'] . ' order by priority desc');
+    else{
+        $stmt = $bdd->query('SELECT * FROM tache WHERE useridlink =' . $_SESSION['id'] . ' order by priority desc');
+    }
 
    if (isset($_POST["submit"])) {
         $priority = prioritytonumber($_POST['priority']);
