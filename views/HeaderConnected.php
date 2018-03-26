@@ -16,10 +16,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../js/scripts.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.1/classic/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <a href="/jaroflife/index.php" class="navbar-brand">Yuko datotsu</a>
     <div class="d-flex flex-row order-2 order-lg-3 ml-auto">
